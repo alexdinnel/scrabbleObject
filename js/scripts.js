@@ -21,11 +21,11 @@ $(document).ready(function() {
     if(finalPoints % 1 === 0){
       $(".word").text(userWord);
       $(".finalResult").text(" is worth " + finalPoints + " points!");
-      $("finalResult").show();
+      $("#finalResult").show();
       
     } else {
       $(".finalResultError").text("Not a valid input");
-      $("finalResultError").show();
+      $("#finalResultError").show();
       
     }
 
