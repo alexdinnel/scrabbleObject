@@ -1,0 +1,29 @@
+
+
+@font-face {
+  font-family: "Scramble";
+  src: url("../font/Scramble.ttf") format("truetype");
+}
+
+h1{
+  font-family: "Scramble", serif; 
+  font-size: 50px;
+  color: #FFCC99;
+}
+
+body{
+  background-image: url("../img/bg.jpg");
+  background-size: 1000px;
+  text-align: center;
+}
+
+p {
+  color: #FFCC99;
+  font-size: 20px;
+}
+
+.word {
+  font-family: "Scramble", serif; 
+  font-size: 40px;
+  color: #FFCC99;
+}

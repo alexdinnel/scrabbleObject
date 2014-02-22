@@ -11,22 +11,26 @@ var wordSum = function(word){
     pointOfLetter = LetterValue(word.charAt(i));
     finalPoints += pointOfLetter; 
   };
-  if(finalPoints % 1 != 0){
-    return "Not a valid input";
-  } else {
-    return finalPoints;
-  }
+  return finalPoints;
 };
 
 $(document).ready(function() {
   $("form#scrabble").submit(function(event) {
     var userWord = $('input#wordInput').val();
-    var finalPoints = Scrabble(userWord);
+    var finalPoints = wordSum(userWord);
+    if(finalPoints % 1 === 0){
+      $(".word").text(userWord);
+      $(".finalResult").text(" is worth " + finalPoints + " points!");
+      $("finalResult").show();
+      
+    } else {
+      $(".finalResultError").text("Not a valid input");
+      $("finalResultError").show();
+      
+    }
 
-    $(".finalResult").text("Your word is worth: " + finalPoints + " points!");
-    $("#finalResult").show();
-    this.reset();
-    event.preventDefault();
+      this.reset();
+      event.preventDefault();
   });
 });
 
