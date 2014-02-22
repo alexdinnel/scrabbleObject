@@ -22,14 +22,8 @@ describe('LetterValue', function() {
   });
 });
 
-describe('Scrabble', function(){
-  it('Returns the sum of points for a word', function(){
-    Scrabble("COW").should.equal(8)
-  });
-  it('Capitalizes lower case words', function(){
-    Scrabble("qkf").should.equal(19)
-  });
-  it('Returns Invalid Input if the user enters an invalid character', function(){
-    Scrabble("hello there!").should.equal('Invalid Entry')
-  });
+describe('wordSum', function(){
+  it('Returns the sum of the word', function(){
+  wordSum("cow").should.equal(8)
+  }); 
 });

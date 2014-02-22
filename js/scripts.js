@@ -1,37 +1,20 @@
-var LetterValue = function(word){
-  var onePointLetter = ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T', 1];
-  var twoPointLetter = ['D', 'G', 2];  
-  var threePointLetter = ['B', 'C', 'M', 'P', 3];
-  var fourPointLetter = ['F', 'H', 'V', 'W', 'Y', 4];
-  var fivePointLetter = ['K', 5];
-  var eightPointLetter = ['J', 'K', 8];
-  var tenPointLetter = ['Q', 'Z', 10];
-  var letterArray = [onePointLetter, twoPointLetter, threePointLetter, fourPointLetter, fivePointLetter, eightPointLetter, tenPointLetter];
-
-    for(var i  = 0; i < letterArray.length; i++){
-      for(var x  = 0; x < letterArray[i].length-1; x++){
-        if (word === letterArray[i][x]) {
-          return letterArray[i][letterArray[i].length-1]; 
-        }
-      };
-    };
+var LetterValue = function(letters){
+  var letterPoints = {"A": 1, "E": 1, "I": 1, "O": 1, "U": 1, "L": 1, "N": 1, "R": 1, "S": 1, "T": 1, "D": 2, "G": 2, "B": 3, "C": 3, "M": 3, "P": 3, "F": 4, "H": 4, "V": 4, "W": 4, "Y": 4, "K": 5, "J": 8, "X": 8, "Q": 10, "Z": 10};
+  return letterPoints[letters];
 };
 
-var Scrabble = function(word){
+var wordSum = function(word){
   word = word.toString().toUpperCase();
-  var userArray = word.split(""); 
-  var totalPoints = 0;
-  var points = 0;
-
-  userArray.forEach(function(letters){
-     points = LetterValue(letters);
-     totalPoints += points;
-  });
-
-  if (totalPoints % 1 != 0){
-    return "Invalid Entry";
+  var finalPoints = 0;
+  var pointOfLetter = 0;
+  for(var i = 0; i < word.length; i++){
+    pointOfLetter = LetterValue(word.charAt(i));
+    finalPoints += pointOfLetter; 
+  };
+  if(finalPoints % 1 != 0){
+    return "Not a valid input";
   } else {
-  return totalPoints;
+    return finalPoints;
   }
 };
 
@@ -46,4 +29,5 @@ $(document).ready(function() {
     event.preventDefault();
   });
 });
+
 
